@@ -1,0 +1,142 @@
+
+
+
+networks:
+  edufy_network:
+    external: true
+
+  # ---------- Databases ----------
+services:
+  songdb:
+    container_name: edusongdb
+    image: mysql:8.0
+    ports:
+      - 8900:3306
+    networks:
+      - edufy_network
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: songdb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: pass
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  albumdb:
+    container_name: edualbumdb
+    image: mysql:8.0
+    ports:
+      - 8901:3306
+    networks:
+      - edufy_network
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: albumdb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: pass
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  # ---------- MicroServices ----------
+  songservice:
+    build:
+      context: ./SongService
+      dockerfile: Dockerfile
+    container_name: songservice
+    ports:
+      - 8905:8080
+    networks:
+      - edufy_network
+    depends_on:
+      songdb:
+        condition: service_healthy
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: edufy-realm
+      KEYCLOAK_CLIENT_ID: edufy-client
+      KEYCLOAK_CLIENT_SECRET: <secret>
+
+  albumservice:
+    build:
+      context: ./AlbumService
+      dockerfile: Dockerfile
+    container_name: albumservice
+    ports:
+      - 8906:8080
+    networks:
+      - edufy_network
+    depends_on:
+      albumdb:
+        condition: service_healthy
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: edufy-realm
+      KEYCLOAK_CLIENT_ID: edufy-client
+      KEYCLOAK_CLIENT_SECRET: <secret>
+
+  edufysystem:
+    build:
+      context: ./EdufySystem
+      dockerfile: Dockerfile
+    container_name: edufysystem
+    ports:
+      - 9900:9900
+    networks:
+      - edufy_network
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: edufy-realm
+      KEYCLOAK_CLIENT_ID: edufy-client
+      KEYCLOAK_CLIENT_SECRET: <secret>
+
+  edufyuserauthms:
+    build:
+      context: ./EdufyUserAuthMS
+      dockerfile: Dockerfile
+    container_name: edufyuserauthms
+    ports:
+      - 9903:9903
+    networks:
+      - edufy_network
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: edufy-realm
+      KEYCLOAK_CLIENT_ID: edufy-client
+      KEYCLOAK_CLIENT_SECRET: OkwVY9igXtl4nh2LiZWJoaS9p7z1VWIz
+
+  edufygateway:
+    build:
+      context: ./EdufyGateway
+      dockerfile: Dockerfile
+    container_name: edufygateway
+    ports:
+      - 9901:9901
+    networks:
+      - edufy_network
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: edufy-realm
+      KEYCLOAK_CLIENT_ID: edufy-client
+      KEYCLOAK_CLIENT_SECRET: OkwVY9igXtl4nh2LiZWJoaS9p7z1VWIz
+
+  podcastms:
+    build:
+      context: ./PodcastMS
+      dockerfile: Dockerfile
+    container_name: podcastms
+    ports:
+      - 9904:9904
+    networks:
+      - edufy_network
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: edufy-realm
+      KEYCLOAK_CLIENT_ID: edufy-client
+      KEYCLOAK_CLIENT_SECRET: OkwVY9igXtl4nh2LiZWJoaS9p7z1VWIz
+

@@ -1,0 +1,20 @@
+version: '3.9'
+
+networks:
+  edufy_network:
+    external: true
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0
+    container_name: keycloak
+    command: start-dev --import-realm
+    environment:
+      - KEYCLOAK_ADMIN=adm
+      - KEYCLOAK_ADMIN_PASSWORD=adm
+    ports:
+      - 8080:8080
+    networks:
+      - edufy_network
+    volumes:
+      - ./realm-export:/opt/keycloak/data/import

@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: SongService
+  datasource:
+    url: "jdbc:mysql://edusongdb:3306/songdb"
+    username: "myuser"
+    password: "pass"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true

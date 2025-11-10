@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: AlbumService
+  datasource:
+    url: "jdbc:mysql://edualbumdb:3306/albumdb"
+    username: "myuser"
+    password: "pass"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+song-api: http://songservice:8080/music
