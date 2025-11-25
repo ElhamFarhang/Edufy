@@ -2,7 +2,7 @@ package org.example.albumservice.services.albums;
 
 import java.util.List;
 
-import org.example.albumservice.dtos.ShowAlbumDTO;
+import org.example.albumservice.dtos.albums.*;
 import org.example.albumservice.repositories.AlbumRepository;
 import org.example.albumservice.services.mappers.DTOMapperService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
 	@Override
-	public List<ShowAlbumDTO> getAllAlbums() {
-        return mapperService.toShowAlbumListDTO(albumRepo.findAll());
+	public List<?> getAllAlbums(String detail) {
+        return mapperService.toShowAlbumListDTO(albumRepo.findAll(), detail);
 	}
 }

@@ -15,4 +15,17 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+    show-sql: false
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/edufy-realm
+
+jwt:
+  auth:
+    converter:
+      resource-id:
+        name: edufy-client
+      principal-attribute: preferred_username

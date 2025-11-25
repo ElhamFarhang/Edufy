@@ -6,7 +6,13 @@ INSERT INTO songs (uuid, title, stream_url) VALUES ("65790255-afc6-49ca-964e-37b
 INSERT INTO songs (uuid, title, stream_url) VALUES ("71c74694-e496-48e2-8b4a-9409c05eaaae", "The Kids Aren't Alright", "https://youtu.be/-uQi0vJK9lk")
 INSERT INTO songs (uuid, title, stream_url) VALUES ("d881be1b-8b5e-4748-b9b6-bedb393416a4", "Pretty Fly (For A White Guy)", "https://youtu.be/BepGmpLT9HA")
 INSERT INTO songs (uuid, title, stream_url) VALUES ("5fa9d334-0278-4066-9b99-c64e4be7db83", "Why Don't You Get A Job", "https://youtu.be/mQYJYY4VkWA")
-
+-- American Idiot, Green Day
+INSERT INTO songs (uuid, title, stream_url) VALUES ("ac160c56-a796-4fd5-ada6-9b8de8f71909", "American Idiot", "https://youtu.be/VyV54YwPAkk")
+INSERT INTO songs (uuid, title, stream_url) VALUES ("543e5e55-b6ed-47ff-a44d-42e3e4d9b05e", "Holiday", "https://youtu.be/9MicpKfet5s")
+-- INSERT INTO songs (uuid, title, url) VALUES ("", "", "")
+-- INSERT INTO songs (uuid, title, url) VALUES ("", "", "")
+-- INSERT INTO songs (uuid, title, url) VALUES ("", "", "")
+-- INSERT INTO songs (uuid, title, url) VALUES ("", "", "")
 
 INSERT INTO genres (genre) VALUES ("Rock")
 INSERT INTO genres (genre) VALUES ("Pop")
@@ -18,7 +24,7 @@ INSERT INTO song_genres (uuid, genre_id) VALUES ("ed6288bf-84d3-4bee-b753-4e7ef2
 INSERT INTO song_genres (uuid, genre_id) VALUES ("ed6288bf-84d3-4bee-b753-4e7ef227644f", 5)
 -- Hysteria
 INSERT INTO song_genres (uuid, genre_id) VALUES ("65790255-afc6-49ca-964e-37bc10a285b3", 1)
-INSERT INTO song_genres (uuid, genre_id) VALUES ("65790255-afc6-49ca-964e-37bc10a285b3", 4)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("65790255-afc6-49ca-964e-37bc10a285b3", 5)
 -- TKAA
 INSERT INTO song_genres (uuid, genre_id) VALUES ("71c74694-e496-48e2-8b4a-9409c05eaaae", 1)
 INSERT INTO song_genres (uuid, genre_id) VALUES ("71c74694-e496-48e2-8b4a-9409c05eaaae", 4)
@@ -30,5 +36,3 @@ INSERT INTO song_genres (uuid, genre_id) VALUES ("d881be1b-8b5e-4748-b9b6-bedb39
 -- WDYGAJ
 INSERT INTO song_genres (uuid, genre_id) VALUES ("5fa9d334-0278-4066-9b99-c64e4be7db83", 1)
 INSERT INTO song_genres (uuid, genre_id) VALUES ("5fa9d334-0278-4066-9b99-c64e4be7db83", 4)
---
-

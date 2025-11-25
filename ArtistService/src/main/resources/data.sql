@@ -1,0 +1,7 @@
+INSERT INTO artists (uuid, name) VALUES ("db0c10fe-ccfa-41f3-8abb-4a7ef03d7920", "Muse")
+INSERT INTO artists (uuid, name) VALUES ("f08962e6-29c0-4b87-b1a1-16640e2cb3ca", "The Offspring")
+INSERT INTO artists (uuid, name) VALUES ("8e8e350e-58d4-40b7-9fb2-1816596defd5", "Ghost")
+-- INSERT INTO artists (uuid, name) VALUES ("", "")
+-- INSERT INTO artists (uuid, name) VALUES ("", "")
+-- INSERT INTO artists (uuid, name) VALUES ("", "")
+-- INSERT INTO artists (uuid, name) VALUES ("", "")

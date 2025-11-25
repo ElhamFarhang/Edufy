@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ArtistService
+  datasource:
+    url: jdbc:mysql://educreatordb:3306/creatordb
+    username: myuser
+    password: pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+api:
+  album: http://albumservice:8080/album
+  song: http://songservice:8080/songs

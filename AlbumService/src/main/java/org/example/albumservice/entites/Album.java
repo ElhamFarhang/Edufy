@@ -22,11 +22,15 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    // private Long id;
-
     @Column(name = "uuid", columnDefinition = "char(36)")
     @JdbcTypeCode(SqlTypes.CHAR)
     private UUID uuid;
+
+    @ElementCollection
+    @JoinTable(name = "album_artists", joinColumns = @JoinColumn(name = "uuid", columnDefinition = "char(36)"))
+    @Column(name = "artist_uuid", columnDefinition = "char(36)")
+    @JdbcTypeCode(SqlTypes.CHAR)
+    private List<UUID> artists;
 
     @Column(name = "album_title")
     private String title;
@@ -43,13 +47,13 @@ public class Album {
     public Album() {
     }
 
-	// public Long getId() {
-	// 	return id;
-	// }
-	//
-	// public void setId(Long id) {
-	// 	this.id = id;
-	// }
+	public List<UUID> getArtists() {
+		return artists;
+	}
+
+	public void setArtists(List<UUID> artists) {
+		this.artists = artists;
+	}
 
 	public Long getRelease() {
 		return release;

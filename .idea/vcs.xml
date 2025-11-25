@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="VcsDirectoryMappings" defaultProject="true" />
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EdufyGateway" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EdufyPodProducerService" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EdufyPodSeasonService" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EdufyPodService" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EdufyUserAuthMS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Gateway" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/UserActivityService" vcs="Git" />
+  </component>
 </project>

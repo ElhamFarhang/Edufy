@@ -1,3 +1,5 @@
+
+#--------------------- Elham - docker-compose-keycloak.yml --------------
 version: '3.9'
 
 networks:
@@ -10,8 +12,8 @@ services:
     container_name: keycloak
     command: start-dev --import-realm
     environment:
-      - KEYCLOAK_ADMIN=adm
-      - KEYCLOAK_ADMIN_PASSWORD=adm
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
     ports:
       - 8080:8080
     networks:

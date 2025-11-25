@@ -1,0 +1,62 @@
+
+
+services:
+  mysql-podcast:
+    image: mysql:8.0
+    container_name: mysql-podcast
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: podcastdb
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - podcast_data:/var/lib/mysql
+    ports:
+      - 3307:3306
+    networks:
+      - edufy_network
+
+  mysql-podproducer:
+    image: mysql:8.0
+    container_name: mysql-podproducer
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: podproducerdb
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - podproducer_data:/var/lib/mysql
+    ports:
+      - 3308:3306
+    networks:
+      - edufy_network
+
+  mysql-podseason:
+    image: mysql:8.0
+    container_name: mysql-podseason
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: podseasonsdb
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - podseason_data:/var/lib/mysql
+    ports:
+      - 3309:3306
+    networks:
+      - edufy_network
+
+volumes:
+  podcast_data:
+  podproducer_data:
+  podseason_data:
+
+networks:
+  edufy_network:
+    driver: bridge

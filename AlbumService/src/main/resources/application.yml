@@ -7,7 +7,6 @@ spring:
     url: "jdbc:mysql://edualbumdb:3306/albumdb"
     username: "myuser"
     password: "pass"
-    driver-class-name: "com.mysql.cj.jdbc.Driver"
   sql:
     init:
       mode: always
@@ -17,4 +16,6 @@ spring:
       ddl-auto: create-drop
     show-sql: true
 
-song-api: http://songservice:8080/music
+api:
+  song: http://songservice:8080/songs
+  artist: http://artistservice:8080

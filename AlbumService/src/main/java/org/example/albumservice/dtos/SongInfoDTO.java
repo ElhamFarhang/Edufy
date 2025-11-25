@@ -2,12 +2,8 @@ package org.example.albumservice.dtos;
 
 import java.util.List;
 
-/**
- * SongInfoDTO
- */
 public class SongInfoDTO {
     private String title;
-    private String streamUrl;
     private List<String> genres;
 
     public SongInfoDTO() {
@@ -27,13 +23,5 @@ public class SongInfoDTO {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getStreamUrl() {
-		return streamUrl;
-	}
-
-	public void setStreamUrl(String streamUrl) {
-		this.streamUrl = streamUrl;
 	}
 }

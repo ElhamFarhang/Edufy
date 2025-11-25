@@ -1,0 +1,25 @@
+
+#--------------------- Elham - docker-compose-activitydb.yml --------------
+services:
+  useractivitydb:
+    container_name: useractivitydb
+    hostname: useractivitydb
+    image: mysql:8.0
+    ports:
+      - 9906:3306
+    networks:
+      - edufy_network
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: useractivitydb
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  edufy_network:
+    external: true
