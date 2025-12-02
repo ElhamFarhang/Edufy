@@ -1,0 +1,97 @@
+
+
+#--------------------- Elham - EdufyGateway --------------
+spring:
+  application:
+    name: EdufyGateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+
+            - id: EdufyUserAuthMS
+              uri: http://edufyuserauthms:9903
+              predicates:
+                - Path=/edufy/**
+              filters:
+                - StripPrefix=0
+
+            - id: SongService
+              uri: http://songservice:8080
+              predicates:
+                - Path=/songs/**
+              filters:
+                - StripPrefix=0
+
+            - id: AlbumService
+              uri: http://albumservice:8080
+              predicates:
+                - Path=/album/**
+              filters:
+                - StripPrefix=0
+
+            - id: EdufyPodService
+              uri: http://edufypodservice:8080
+              predicates:
+                - Path=/pods/podcasts/**
+              filters:
+                - StripPrefix=0
+
+            - id: EdufyPodProducerService
+              uri: http://edufypodproducerservice:8080
+              predicates:
+                - Path=/pods/producers/**
+              filters:
+                - StripPrefix=0
+
+            - id: EdufyPodSeasonService
+              uri: http://edufypodseasonservice:8080
+              predicates:
+                - Path=/podcasts/seasons/**
+              filters:
+                - StripPrefix=0
+
+            - id: UserActivityService
+              uri: http://useractivityservice:9905
+              predicates:
+                - Path=/activity/**
+              filters:
+                - StripPrefix=0
+
+            - id: UserMicroservice
+              uri: http://usermicroservice:7074
+              predicates:
+                - Path=/user/**
+              filters:
+                - StripPrefix=0
+
+            - id: EdufyVideo2
+              uri: http://edufyvideo2:8089
+              predicates:
+                - Path=/video/**
+              filters:
+                - StripPrefix=0
+
+            - id: EdufyVideoUploaderService
+              uri: http://edufyvideouploaderservice:8091
+              predicates:
+                - Path=/uploaders/**
+              filters:
+                - StripPrefix=0
+
+            - id: EdufyVideoSeriesService
+              uri: http://edufyvideoseriesservice:8090
+              predicates:
+                - Path=/series/**
+              filters:
+                - StripPrefix=0
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/edufy-realm
+
+server:
+  port: 9901
