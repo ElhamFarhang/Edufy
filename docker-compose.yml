@@ -241,6 +241,58 @@ services:
       useractivitydb:
         condition: service_healthy
 
+  usermicroservice:
+    build:
+      context: ./UserMicroservice
+      dockerfile: Dockerfile
+    container_name: usermicroservice
+    ports:
+      - 7074:7074
+    networks:
+      - edufy_network
+    depends_on:
+      useractivitydb:
+        condition: service_healthy
+
+  edufyvideo2:
+    build:
+      context: ./EdufyVideo2
+      dockerfile: Dockerfile
+    container_name: edufyvideo2
+    ports:
+      - 8089:8089
+    networks:
+      - edufy_network
+    depends_on:
+      useractivitydb:
+        condition: service_healthy
+
+  edufyVideouploaderservice:
+    build:
+      context: ./EdufyVideoUploaderService
+      dockerfile: Dockerfile
+    container_name: edufyVideouploaderservice
+    ports:
+      - 8091:8091
+    networks:
+      - edufy_network
+    depends_on:
+      useractivitydb:
+        condition: service_healthy
+
+  edufyvideoseriesservice:
+    build:
+      context: ./EdufyVideoSeriesService
+      dockerfile: Dockerfile
+    container_name: edufyvideoseriesservice
+    ports:
+      - 8090:8090
+    networks:
+      - edufy_network
+    depends_on:
+      useractivitydb:
+        condition: service_healthy
+
   edufygateway:
     build:
       context: ./EdufyGateway
