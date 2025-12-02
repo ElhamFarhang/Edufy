@@ -1,0 +1,14 @@
+com\example\useractivityservice\controllers\UserActivityController.class
+com\example\useractivityservice\configs\SecurityConfig.class
+com\example\useractivityservice\dto\ActivityDTO.class
+com\example\useractivityservice\services\PodcastHistoryService.class
+com\example\useractivityservice\media\MediaType.class
+com\example\useractivityservice\services\VideoHistoryService.class
+com\example\useractivityservice\configs\AppConfig.class
+com\example\useractivityservice\services\MusicHistoryService.class
+com\example\useractivityservice\dto\MediaResponseDTO.class
+com\example\useractivityservice\UserActivityServiceApplication.class
+com\example\useractivityservice\repositories\UserActivityRepository.class
+com\example\useractivityservice\entities\UserActivity.class
+com\example\useractivityservice\services\UserActivityService.class
+com\example\useractivityservice\converters\JwtAuthConverter.class
