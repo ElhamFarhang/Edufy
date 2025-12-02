@@ -1,4 +1,6 @@
 
+
+# ---------- Wilhelm & Elham ----------
 networks:
   edufy_network:
     external: true
@@ -24,7 +26,6 @@ services:
       timeout: 5s
       retries: 5
 
-
   mysql-podproducer:
     image: mysql:8.0
     container_name: mysql-podproducer
@@ -42,7 +43,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
 
   mysql-podseason:
     image: mysql:8.0
@@ -240,7 +240,6 @@ services:
     depends_on:
       useractivitydb:
         condition: service_healthy
-
 
   edufygateway:
     build:

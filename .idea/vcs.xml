@@ -7,7 +7,6 @@
     <mapping directory="$PROJECT_DIR$/EdufyPodSeasonService" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/EdufyPodService" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/EdufyUserAuthMS" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Gateway" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/UserActivityService" vcs="Git" />
   </component>
 </project>
